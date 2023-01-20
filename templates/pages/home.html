@@ -1,0 +1,381 @@
+{% extends 'base.html' %}
+
+{% block title %} | Home {% endblock %}
+{% block content %}
+
+{% load humanize %}
+{% load static %}
+<br>
+<div id="carouselExampleIndicators" class="w3-hide-small px-24 carousel slide w3-hide-large w3-hide-medium" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://i.postimg.cc/k5LG6Zh8/mix-blend-multiply-bg-blue-400mkokmk.png" height="145px" class="d-block" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src=" https://i.postimg.cc/VNCfq2m9/mix-blend-multiply-bg-blue-400-bb.png" height="145px" class="d-block" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.postimg.cc/P553RFfB/mix-blend-multiply-bg-blue-400-vv.png" height="145px" class="d-block" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.postimg.cc/3NyY7rvX/mix-blend-multiply-bg-blue-400cccccccccc.png" height="145px" class="d-block" alt="...">
+      </div>
+     
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!--small screens-->
+  
+<!-- Page content -->
+<div class="w3-content w3-hide-large w3-hide-medium" style="max-width:2000px;margin-top:20px">
+
+  <!-- Automatic Slideshow Images -->
+  <div class="mySlides w3-display-container w3-center">
+    <img src="https://i.postimg.cc/k5LG6Zh8/mix-blend-multiply-bg-blue-400mkokmk.png" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Los Angeles</h3>
+      <p><b>We had the best time playing at Venice Beach!</b></p>   
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src= "https://i.postimg.cc/VNCfq2m9/mix-blend-multiply-bg-blue-400-bb.png" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>New York</h3>
+      <p><b>The atmosphere in New York is lorem ipsum.</b></p>    
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="https://i.postimg.cc/P553RFfB/mix-blend-multiply-bg-blue-400-vv.png" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Chicago</h3>
+      <p><b>Thank you, Chicago - A night we won't forget.</b></p>    
+    </div>
+  </div>
+
+  <div class="mySlides w3-display-container w3-center">
+    <img src="https://i.postimg.cc/3NyY7rvX/mix-blend-multiply-bg-blue-400cccccccccc.png" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Chicago</h3>
+      <p><b>Thank you, Chicago - A night we won't forget.</b></p>    
+    </div>
+  </div>
+
+
+ </div>
+
+  
+  
+  <div class="w3-hide-small">
+  <div class="swiffy-slider slider-item-show2 slider-item-reveal slider-item-snapstart slider-item-nogap slider-item-reveal slider-nav-outside slider-nav-dark slider-nav-sm slider-nav-visible slider-nav-page slider-item-snapstart slider-nav-autoplay slider-nav-autopause slider-item-ratio slider-item-ratio-contain slider-item-ratio " data-slider-nav-autoplay-interval="8000">
+    <div class="slider-container">
+      <div>   <img
+        className="d-block w-100"
+        src="https://i.postimg.cc/k5LG6Zh8/mix-blend-multiply-bg-blue-400mkokmk.png"
+        alt="First slide"
+      /></div>
+        <div>    <img
+          className="d-block w-100"
+          src="https://i.postimg.cc/VNCfq2m9/mix-blend-multiply-bg-blue-400-bb.png"
+          alt="First slide"
+        /></div>
+  
+        <div>  <img
+          className="d-block w-100"
+          src="https://i.postimg.cc/P553RFfB/mix-blend-multiply-bg-blue-400-vv.png"
+          alt="First slide"
+        />   </div>
+        <div>  <img
+          className="d-block w-100"
+          src="https://i.postimg.cc/3NyY7rvX/mix-blend-multiply-bg-blue-400cccccccccc.png"
+          alt="First slide"
+        /></div>
+  
+  
+    
+    </div>
+  
+    <button type="button" class="slider-nav" aria-label="Go left"></button>
+    <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+  
+  </div>
+  </div>
+  <!--small-->
+  <div class="w3-container w3-hide-large w3-hide-medium">
+    <div class="w3-row">
+      <div class="w3-col s3 w3-center"> 
+        <img class="c " src="https://i.postimg.cc/SRbmSGYj/ARCHITECTNNNBBB.png" alt="Card image cap">
+    </div>
+      <div class="w3-col s3 ">
+        <img class="c " src="https://i.postimg.cc/hvFsjX02/ARCHITECTm.png" alt="Card image cap">
+   
+      </div>
+      <div class="w3-col s3 w3-red w3-center"> 
+          <img class="c " src="https://i.postimg.cc/2j1v9dDv/ARCHITECTqw.png" alt="Card image cap">
+      </div>
+      <div class="w3-col s3 w3-red w3-center">  
+         <img class="c " src="https://i.postimg.cc/Qxy0FNqG/123.png" alt="Card image cap">
+      </div>
+    </div>
+  </div>
+<!--smll-->
+<div class="px-72">
+<div class="w3-row">
+    <div class="w3-col s2  w3-center">
+        <img
+        height="10px"
+        src="https://i.postimg.cc/MHhZZbBc/cementgggg.png"
+        alt="First slide"
+      /> 
+    </div>
+    <div class="w3-col s2  w3-center">
+        <img
+        height="10px"
+        src="https://i.postimg.cc/dV7HPTDM/cement12-1-1.png"
+        alt="First slide"
+      />  
+    </div>
+    <div class="w3-col s2  w3-center">
+        <img
+        height="105px"
+        src="https://i.postimg.cc/0Q3099Qt/steelin-1-1.png"
+        alt="First slide"
+      />  
+    </div>
+    <div class="w3-col s2  w3-center">  <img
+        height="105px"
+        src="https://i.postimg.cc/CLKS3YDy/cement1234567890-1-2.png"
+        alt="First slide"
+      />  </div>
+    <div class="w3-col s2 w3-center">
+        <img
+        height="105px"
+        src="https://i.postimg.cc/WbrcL33H/cement12345678-1-2.png"
+        alt="First slide"
+      />
+    </div>
+    <div class="w3-col s2 w3-center">
+        <img
+        height="105px"
+        src="https://i.postimg.cc/MHhZZbBc/cementgggg.png"
+        alt="First slide"
+      />
+    </div>
+  </div>
+
+  
+</div>
+
+<!-- Intro section end -->
+<div class="w3-hide-small w3-container w3-row w3-row-padding w3-padding-16">
+    <div class="w3-container px-4" style="width: 10rem;">
+        <img class="c " src="https://imgur.com/qeHOJWM.png" alt="Card image cap">
+    </div>
+
+    <div class="w3-col s3 w3-margin-bottom">
+     <span class="w3-center">
+      <img src="https://i.postimg.cc/cHTG0nZr/Untitled-designhhhhhhhh.png" alt="Norway" style="width:100%">
+    </span>
+      <div class="w3-container w3-white">
+        <p class="w3-text-gray"> 4 grades of TMT steel bars :- Fe-415, Fe-500, FE-550, Fe-600</p>
+        <p class="w3-opacity w3-hide-large w3-hide-small w3-hide">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+    
+      </div>
+    </div>
+    <div class="w3-col s3 w3-margin-bottom">
+        <span class="w3-center">
+         <img src="https://i.postimg.cc/3xhKqqbJ/Untitled-designmmm.png" alt="Norway" style="width:100%">
+       </span>
+         <div class="w3-container w3-white">
+          <p class="w3-text-orange">Stainless Steel Sheet, Carbon Steel Plate, Other</p>
+      <p class="w3-opacity w3-hide-large w3-hide-small w3-hide">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+       
+         </div>
+       </div>
+       <div class="w3-col s3 w3-margin-bottom">
+        <span class="w3-center">
+         <img src="https://i.postimg.cc/SRvS14sZ/kookoko.png" alt="Norway" style="width:100%">
+       </span>
+         <div class="w3-container w3-white">
+           <p class="w3-text-gray"> White Marble represents purity and peace </p>
+
+       
+         </div>
+       </div>
+    <div class="w3-col s3 w3-margin-bottom">
+        <span class="w3-center">
+         <img src="https://i.postimg.cc/J44DTBXJ/nnnnooooooooooooo.png" alt="Norway" style="width:100%">
+       </span>
+         <div class="w3-container w3-white">
+           <p class="w3-text-gray"> 4 grades of TMT steel bars :- Fe-415, Fe-500, FE-550, Fe-600</p>
+           <p class="w3-opacity w3-hide-large w3-hide-small w3-hide">Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+       
+         </div>
+       </div>
+  </div>
+  <!-- small screen -->
+<div class="w3-hide-large w3-hide-medium w3-container w3-row  w3-padding-16">
+  <div class="py-2" style="width: 6rem;">
+      <img class="c " src="https://imgur.com/qeHOJWM.png" alt="Card image cap">
+  </div>
+
+  <div class="w3-col s6 w3-margin-bottom">
+   <span class="w3-center">
+    <img src="https://i.postimg.cc/cHTG0nZr/Untitled-designhhhhhhhh.png" alt="Norway" style="width:100%">
+  </span>
+    <div class=" w3-white">
+      <p class="w3-text-gray px-1"><small>Fe-415, Fe-500, FE-550, Fe-600</small></p>
+    
+    </div>
+  </div>
+  <div class="w3-col s6 w3-margin-bottom">
+      <span class="w3-center">
+       <img src="https://i.postimg.cc/3xhKqqbJ/Untitled-designmmm.png" alt="Norway" style="width:100%">
+     </span>
+       <div class="w3-white">
+        <p class="w3-text-gray"><small>Stainless Steel,Carbon Steel Plate, Other</small></p>
+   
+       </div>
+     </div>
+
+     <div class="w3-col s6 w3-margin-bottom">
+      <span class="w3-center">
+       <img src="https://i.postimg.cc/SRvS14sZ/kookoko.png" alt="Norway" style="width:100%">
+     </span>
+       <div class="w3-white">
+         <p class="w3-text-gray"><small> White Marble,Cream Marble,Black Marble.</small> </p>
+       </div>
+     </div>
+  <div class="w3-col s6 w3-margin-bottom">
+      <span class="w3-center">
+       <img src="https://i.postimg.cc/J44DTBXJ/nnnnooooooooooooo.png" alt="Norway" style="width:100%">
+     </span>
+       <div class="w3-white">
+         <p class="w3-text-gray"><small>Ceramic Tile, Porcelain Tile,other</small></p>
+      </div>
+     </div>
+
+
+
+</div>
+
+<!--small screen-->
+<div class="w3-hide-small swiffy-slider slider-item-show3 slider-nav-dark slider-nav-visible slider-nav-outside slider-item-snapstart my-3 slider-nav-sm my-xl-5 slider-indicators-square slider-indicators-outside slider-indicators-dark slider-nav-animation-slideup slider-nav-animation slider-item-first-visible">
+  <div class="slider-container">
+      <div class="slide-visible">
+          <div>
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Today @ 11:12</h3>
+              <strong>Never seen before:</strong> Billion people taking clickbait on SoMe every hour. <small class="text-muted text-uppercase">People</small>
+          </div>
+      </div>
+      <div class="slide-visible">
+          <div>
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Today @ 10:02</h3>
+              <span class="badge bg-warning text-dark"><strong>BREAKING</strong></span> Great and superfast websites can be made with simple technology. <small class="text-muted text-uppercase">Religion</small>
+          </div>
+      </div>
+      <div class="slide-visible">
+          <div>
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Today @ 09:48</h3>
+              Google, Facebook and Apple announces they will respect privacy. <small class="text-muted text-uppercase">Corp BS</small>
+          </div>
+      </div>
+      <div>
+          <div>
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Today @ 09:32</h3>
+              <span class="badge bg-success"><strong>Style</strong></span> Get fantastic lunch recipes for developers working at home. <small class="text-muted text-uppercase">Awesome</small>
+          </div>
+      </div>
+      <div>
+          <div>
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Today @ 09:28</h3>
+              <strong>Just released:</strong> an even more fat-ass framework that can render markup <small class="text-muted text-uppercase">Music</small>
+          </div>
+      </div>
+      <div>
+          <div>
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Today @ 08:08</h3>
+              Swiffy Slider is very nice, neat and fast. <small class="text-muted text-uppercase">Simple</small>
+          </div>
+      </div>
+  </div>
+
+  <button type="button" class="slider-nav" aria-label="Go left"></button>
+  <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+
+  <div class="slider-indicators" style="justify-content:right;margin-left: 3rem;">
+      <button class="active" aria-label="Go to slide"></button>
+      <button aria-label="Go to slide"></button>
+      <button aria-label="Go to slide"></button>
+      <button aria-label="Go to slide"></button>
+  </div>
+
+</div>
+<br> <br>
+<!--big screen-->
+<div class="w3-hide-large w3-hide-medium swiffy-slider slider-item-show3 slider-nav-dark slider-nav-visible slider-nav-outside slider-item-snapstart my-3 slider-nav-sm my-xl-5 slider-indicators-square slider-indicators-outside slider-indicators-dark slider-nav-animation-slideup slider-nav-animation slider-item-first-visible">
+  <div class="slider-container">
+      <div class="slide-visible">
+          <div>
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Today @ 11:12</h3>
+              <strong>Never seen before:</strong> Billion people taking clickbait on SoMe every hour. <small class="text-muted text-uppercase">People</small>
+          </div>
+      </div>
+      <div class="slide-visible">
+          <div>
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Today @ 10:02</h3>
+              <span class="badge bg-warning text-dark"><strong>BREAKING</strong></span> Great and superfast websites can be made with simple technology. <small class="text-muted text-uppercase">Religion</small>
+          </div>
+      </div>
+      <div class="slide-visible">
+          <div>
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Today @ 09:48</h3>
+              Google, Facebook and Apple announces they will respect privacy. <small class="text-muted text-uppercase">Corp BS</small>
+          </div>
+      </div>
+      <div>
+          <div>
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Today @ 09:32</h3>
+              <span class="badge bg-success"><strong>Style</strong></span> Get fantastic lunch recipes for developers working at home. <small class="text-muted text-uppercase">Awesome</small>
+          </div>
+      </div>
+      <div>
+          <div>
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Today @ 09:28</h3>
+              <strong>Just released:</strong> an even more fat-ass framework that can render markup <small class="text-muted text-uppercase">Music</small>
+          </div>
+      </div>
+      <div>
+          <div>
+              <h3 class="mb-0 h6" style="color:#DF1E1E;">Today @ 08:08</h3>
+              Swiffy Slider is very nice, neat and fast. <small class="text-muted text-uppercase">Simple</small>
+          </div>
+      </div>
+  </div>
+
+  <button type="button" class="slider-nav" aria-label="Go left"></button>
+  <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+
+  <div class="slider-indicators" style="justify-content:right;margin-left: 3rem;">
+      <button class="active" aria-label="Go to slide"></button>
+      <button aria-label="Go to slide"></button>
+      <button aria-label="Go to slide"></button>
+      <button aria-label="Go to slide"></button>
+  </div>
+
+</div>
+  {% include 'includes/footer.html' %}
+{% endblock %}

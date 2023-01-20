@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+
+
+{% block title %} | carSearch Result {% endblock %}
+{% block content %}
+{% load humanize %}
+<br/><br/><br/>
+<div class="px-12 w3-row w3-padding-34 w3-hide-small">
+  <br>
+  <div class="w3-container w3-center w3-padding-34"> 
+    <h5 class="w3-center py-2"><span class="w3-tag">PRODUCT </span></h5>
+   
+  </div> 
+  <br>
+    <div class="w3-col  s9 ">
+
+<div class="">
+<div class="   max-w-9xl  px-6 grid grid-cols-1 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-4 gap-2">
+    <!--Card 1-->
+    {% for car in cars %}
+    <div class="rounded overflow-hidden shadow-lg">
+        <a href="{% url 'car_detail' car.id %}" class="car-img">
+      <img class="w-full" src="{{car.car_photo.url}}" alt="Mountain">
+    </a>
+      <div class="px-2 py-2">
+        <div class=" text-l mb-2">
+            <span class="mb-2 text-l font-bold tracking-tight text-gray-900 dark:text-white">
+                <a href="{% url 'car_detail' car.id %}">{{ car.car_title }}</a>
+            </span>
+            <span class="w3-right text-xs  inline-block py-1 px-2 uppercase rounded text-slate-600 bg-slate-100 last:mr-0 mr-1">
+                {{car.model}}
+                </span>
+          
+
+        </div>
+       
+          <span class="text-xs inline-block p rounded text-gray-600  last:mr-0 mr-1">
+
+          
+            <a href="{% url 'car_detail' car.id %}">
+                <i class="flaticon-pin"></i>{{car.state}}, {{car.city}}
+            </a>
+        </span>
+      </div>
+      <div class="px-2  pb-2">
+        <span class="text-xs inline-block py-1 px-2  rounded text-slate-600 bg-slate-200  last:mr-0 mr-1">
+          Start at ₹{{car.price | intcomma }}</span>
+          </span>      
+      
+            
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+    </div>
+    <div class="w3-col s3  w3-center w3-hide-small">
+        <div class="search-box-4 sb-8">
+
+            <div class="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <form action="{% url 'search' %}" method="" class="">
+                    <div class="py-1" style="width: 16rem;">
+                        <img class="card-img-top " src="https://imgur.com/f3Kfz9e.png" alt="Card image cap">
+                      </div>
+                    <div class="mb-2">
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="model">
+                            <option selected="true" disabled="disabled">Model</option>
+                            {% for model in model_search %}
+                              <option value="{{model}}">{{model}}</option>
+                            {% endfor %}
+                        </select> </div> 
+                    <div class="mb-2">
+                        <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="city">
+                            <option selected="true" disabled="disabled">Location</option>
+                            {% for city in city_search %}
+                              <option value="{{city}}">{{city}}</option>
+                            {% endfor %}
+                        </select> </div> 
+                
+                            <div class="mb-2">
+                                <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+                                <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="body_style">
+                                    <option selected="true" disabled="disabled">Select Type</option>
+                                    {% for body_style in body_style_search %}
+                                      <option value="{{body_style}}">{{body_style}}</option>
+                                    {% endfor %}
+                                </select> </div> 
+                
+                                        
+                    <div class="flex items-start mb-2">
+                      <div class="form-group">
+                        <button class="w3-black w3-button w3-round w3-block px-24">
+                            <i class="fa fa-search"></i> Search
+                        </button>
+                    </div>
+                    </form>
+            </div>
+        </div>
+
+    </div>
+  </div>
+<!--small-->
+<div class="w3-hide-large w3-hide-medium">
+  <div class="px-2  w-full max-w-sm bg-white rounded-lg border border-gray-200  sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <form action="{% url 'search' %}" method="" class="">
+        <div class="py-1" style="width: 17.5rem;">
+            <img class="card-img-top " src="https://imgur.com/f3Kfz9e.png" alt="Card image cap">
+          </div>
+        <div class="mb-2">
+            <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="model">
+                <option selected="true" disabled="disabled">Model</option>
+                {% for model in model_search %}
+                  <option value="{{model}}">{{model}}</option>
+                {% endfor %}
+            </select> </div> 
+        <div class="mb-2">
+            <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+            <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="city">
+                <option selected="true" disabled="disabled">Location</option>
+                {% for city in city_search %}
+                  <option value="{{city}}">{{city}}</option>
+                {% endfor %}
+            </select> </div> 
+    
+                <div class="mb-2">
+                    <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="body_style">
+                        <option selected="true" disabled="disabled">Select Type</option>
+                        {% for body_style in body_style_search %}
+                          <option value="{{body_style}}">{{body_style}}</option>
+                        {% endfor %}
+                    </select> </div> 
+    
+                            
+        <div class="flex items-start mb-2">
+          <div class="form-group">
+            <button class="w3-black w3-button w3-round w3-block px-24">
+                <i class="fa fa-search"></i> Search
+            </button>
+        </div>
+        </form>
+</div>
+
+<!--card-->
+
+<div class="py-4 px-1">
+ 
+  <div class="   max-w-9xl  px-6 grid grid-cols-1 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-4 gap-2">
+
+    <div class="w3-container w3-center w3-padding-34"> 
+      <h5 class="w3-center py-2"><span class="">Product</span></h5>
+
+    </div> 
+      <!--Card 1-->
+      {% for car in cars %}
+      <div class="rounded overflow-hidden shadow-lg">
+          <a href="{% url 'car_detail' car.id %}" class="car-img">
+        <img class="w-full" src="{{car.car_photo.url}}" alt="Mountain">
+      </a>
+        <div class="px-6 py-4">
+          <div class="font-bold text-l mb-2">
+              <span class="mb-2 text-l font-bold tracking-tight text-gray-900 dark:text-white">
+                  <a href="{% url 'car_detail' car.id %}">{{ car.car_title }}</a>
+              </span>
+              <span class="w3-right text-xs  inline-block py-1 px-2 uppercase rounded text-slate-600 bg-slate-200 last:mr-0 mr-1">
+                  {{car.model}}
+                  </span>
+            
+  
+          </div>
+         
+            <span class="text-xs inline-block py-1 px-2  rounded text-gray-600  last:mr-0 mr-1">
+  
+            
+              <a href="{% url 'car_detail' car.id %}">
+                  <i class="flaticon-pin"></i>{{car.state}}, {{car.city}}
+              </a>
+          </span>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-slate-600 bg-slate-200 uppercase last:mr-0 mr-1">
+              <span> Start at ₹{{car.price | intcomma }}small>Per Day</small></span>
+            </span>      
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+
+<br><br><br><br>
+
+
+</div>
+
+
+{% endblock %}

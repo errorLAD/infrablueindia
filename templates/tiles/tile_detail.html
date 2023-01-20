@@ -1,0 +1,376 @@
+{% extends 'base.html' %}
+
+{% block title %} | {{single_tile.tile_title}} {% endblock %}
+{% block content %}
+
+{% load static %}
+{% load humanize %}
+
+<!-- Sub banner start -->
+
+
+<!-- Sub banner start -->
+<div class="container py-24 px-8  ">
+    {% include 'includes/messages.html' %}
+    <!--small-->
+    <div class="w3-hide-large w3-hide-medium">
+      <span class="">
+       <img alt="ecommerce" class=" border-gray-200" src="{{single_tile.tile_photo.url}}">
+      </span>
+   </div>
+
+
+    <div class="w3-row">
+      <div class="w3-col s4  w3-center w3-hide-small">
+         <span class="w3-center">
+          <img alt="ecommerce" class=" border-gray-200" src="{{single_tile.tile_photo.url}}">
+         </span>
+      </div>
+
+
+    <!--larg/mdium-->
+    <div class="w3-hide-large w3-hide-medium ">
+      <div class="py-4">
+        <h5 class=" px-4 text-2xl title-font font-medium mb-1">   {{single_tile.tile_title}}</h5>
+         
+     <div class="w3-row px-4 py-2">
+     <div class="w3-col s8">
+        
+          
+     </div>
+     <div class="w3-col s4 ">
+     
+     </div>
+  
+    <div class="w3-col s6">
+      <span class="text-s  inline-block  rounded text-slate-900  last:mr-0 mr-1">
+        <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+        <span class="text-s  inline-block  rounded text-slate-500  last:mr-0 mr-1">
+       <small>{{single_tile.state}}, {{single_tile.city}}  </small>
+      </span>
+    </div>
+    <div class="w3-col s6 ">
+      <span class="text-s  inline-block   rounded text-slate-900 last:mr-0 mr-1">
+        <i class="fa fa-inr" aria-hidden="true"></i>
+        <span class="text-s  inline-block  rounded text-slate-500 last:mr-0 mr-1">
+       <small> {{single_tile.condition}}</small>
+      </span>
+     
+    </div>
+  
+    <div class="w3-col s8 ">
+      <span class="text-s  inline-block   rounded text-slate-900  last:mr-0 mr-1">
+        <i class="fa fa-user" aria-hidden="true"></i></span>
+      <span class="text-s  inline-block   rounded text-slate-500  last:mr-0 mr-1">
+          <small>Experience {{single_tile.doors}}</small>
+      </span>
+    </div>
+  
+  </div>
+    
+    <section class=" py-2 px-4 text-gray-800 body-font overflow-hidden bg-white">
+      <div class="slider-container">
+        <span class="text-s  inline-block   rounded text-slate-900  last:mr-0 mr-1">
+          <i class="fa fa-wpexplorer" aria-hidden="true"></i>
+        <span class="text-s  inline-block   rounded text-slate-500  last:mr-0 mr-1"> 
+          
+          <small>{{single_tile.description | safe }}</small>
+         </span>
+    </div><br>
+  </section>
+  
+    <div class="modal-body">
+        
+        <h5 class="w3-center w3-padding-12"><span class="w3-tag  w3-wide">
+              BOOK SERVICES</span></h5>
+        <br>
+            
+        <form action="{% url 'tileinquiry' %}" method="POST">
+          {% csrf_token %}
+  
+          {% if user.is_authenticated %}
+            <input type="hidden" name="user_id" value="{{user.id}}">
+          {% else %}
+            <input type="hidden" name="user_id" value="0">
+          {% endif %}
+  
+          <input type="hidden" name="tile_id" value="{{single_tile.id}}">
+            <div class="form-group">
+                <span clas="py-2">
+                    <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Name </label>
+                </span>
+              
+              <div class="w3-row">
+                <div class="w3-col s6">
+                  <input type="text" name="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First Name"
+                  {% if user.is_authenticated %} value="{{user.first_name}}"  {% endif %} required>
+                </div>
+                <div class="w3-col s6 px-1">
+                  <input type="text" name="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Last Name"
+                   {% if user.is_authenticated %} value="{{user.last_name}}"  {% endif %} required>
+                </div>
+              </div>
+            </div>
+  
+        
+  
+  
+  
+              <div class="form-group py-1">
+                <span clas="py-2">
+                <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Inquire For My</label>
+                  </span>
+                  <select id="sel1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="customer_need" >
+                    <option value="I'm interested in this">House</option>
+                    <option value="I'd like to know your best price for this">villa </option>
+                    <option value="I'd like to test drive this">Apartment</option>
+                    <option value="I'd like a history report for this">Other</option>
+                  </select>
+                </div>
+  
+         
+  
+            <div class="form-grou py-1">
+                <span clas="py-2">
+                    <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">ADDRESS</label>
+                </span>
+           
+              <div class="w3-row">
+                <div class="w3-col s6">
+                  <input type="text" name="city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="City" required>
+                </div>
+                <div class="w3-col s6 px-1">
+                  <input type="text" name="state" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="State" required>
+                </div>
+              </div>
+            </div>
+            <div class="form-group py-1 w3-hide-small">
+              <span clas="py-2">
+                  <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Connect To</label>
+              </span>
+            <input type="text" name="tile_title" class="text-blue-600/100" value="{{ single_tile.tile_title }}" readonly>
+          </div>
+            <div class="form-group py-1">
+              <div class="row">
+                <div class="col">
+  
+                    <span clas="py-2">
+                        <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Email </label>
+                    </span>
+          
+                  <input type="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="Email Address"
+                   {% if user.is_authenticated %} value="{{user.email}}"  {% endif %} required>
+                </div>
+                <div class="col py-1">
+                    <span clas="py-2">
+                        <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Phone Number & Whatsapp Number </label>
+                    </span>
+          
+                  <input type="text" name="phone" placeholder="Phone Number " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
+                </div>
+              </div>
+            </div>
+  
+            <div class="form-group py-2">
+                 <span clas="py-2">
+                        <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Comments</label>
+                    </span>
+       
+              <textarea name="message" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your message here (optional)"></textarea>
+            </div>
+            
+            <input type="submit" value="BOOK/HIRE" class="mb-2 w-full inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+        </form>
+      </div>
+  </div>
+  </div>
+
+
+
+
+
+      <!--small-->
+      <div class="w3-col s8 py-2 w3-hide-small">
+        <h5 class=" text-3xl title-font font-medium mb-1 py-1">   {{single_tile.tile_title}}</h5>
+        <br>
+        <div class="w3-row py-1">
+          <div class="w3-col s6">
+            <span class="text-s  inline-block   rounded text-slate-900">
+              <i class="fa fa-wrench" aria-hidden="true"></i></span> 
+              <span class="  inline-block   rounded text-slate-600   last:mr-0 mr-1">
+              <small>  {{single_tile.model}}</small>
+            </span>
+          </div>
+
+
+          <div class="w3-col s6  w3-center">
+            <span class="text-s  inline-block   rounded text-slate-900 last:mr-0 mr-1">
+              <i class="fa fa-inr" aria-hidden="true"></i>
+              <span class="text-s  inline-block  rounded text-slate-500 last:mr-0 mr-1">
+             <small> {{single_tile.condition}}</small>
+            </span>
+          </div>
+        </div>
+
+        <div class="w3-row">
+          <div class="w3-col s6">
+            <span class="text-s  inline-block  rounded text-slate-900  last:mr-0 mr-1">
+              <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+              <span class="text-s  inline-block  rounded text-slate-500  last:mr-0 mr-1">
+             <small>{{single_tile.state}}, {{single_tile.city}}  </small>
+            </span>
+          </div>
+
+
+          <div class="w3-col s6  w3-center">
+            <span class="text-s  inline-block   rounded text-slate-900  last:mr-0 mr-1">
+              <i class="fa fa-user" aria-hidden="true"></i></span>
+            <span class="text-s  inline-block   rounded text-slate-500  last:mr-0 mr-1">
+                <small>Experience {{single_tile.doors}}</small>
+            </span>
+          </div>
+        </div>
+
+        <div class="w3-row py-2">
+          <div class="w3-col s10">
+            <span class="text-s  inline-block   rounded text-slate-900  last:mr-0 mr-1">
+              <i class="fa fa-wpexplorer" aria-hidden="true"></i>
+            <span class="text-s  inline-block   rounded text-slate-500  last:mr-0 mr-1"> 
+              
+              <small>{{single_tile.description | safe }}</small>
+             </span>
+            </p>
+          </div>
+        </div>
+
+
+
+
+        <div class="w3-row px-2">
+
+      <div class="modal-body">
+              
+        <h5 class="w3-center w3-padding-12"><span class="w3-tag w3-red">
+          Price Quote?</span></h5>
+        <br>
+            
+        <form action="{% url 'tileinquiry' %}" method="POST">
+          {% csrf_token %}
+
+          {% if user.is_authenticated %}
+            <input type="hidden" name="user_id" value="{{user.id}}">
+          {% else %}
+            <input type="hidden" name="user_id" value="0">
+          {% endif %}
+         
+          <div class="w3-row">
+            <div class="w3-col s4 w3-green w3-center">
+
+            </div>
+            <div class="w3-col s4 w3-dark-grey w3-center">
+
+            </div>
+            <div class="w3-col s4 w3-red w3-center">
+
+
+            </div>
+          </div>
+
+          <input type="hidden" name="tile_id" value="{{single_tile.id}}">
+            <div class="form-group">
+              
+              
+              <div class="w3-row">
+                <div class="w3-col s4">
+                  <span clas="">
+                    <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2  rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">First Name</label>
+                </span>
+                  <input type="text" name="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First Name"
+                  {% if user.is_authenticated %} value="{{user.first_name}}"  {% endif %} required>
+                </div>
+                <div class="w3-col s4 px-1">
+                  <span clas="">
+                    <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2  rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Last Name</label>
+                </span>
+                  <input type="text" name="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Last Name"
+                   {% if user.is_authenticated %} value="{{user.last_name}}"  {% endif %} required>
+                </div>
+                <div class="w3-col s4">
+                  <span clas="">
+                    <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Inquire For My</label>
+                      </span>
+                <select id="sel1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="customer_need" >
+                  <option value="I'm interested in this">House</option>
+                  <option value="I'd like to know your best price for this">villa </option>
+                  <option value="I'd like to test drive this">Apartment</option>
+                  <option value="I'd like a history report for this">Other</option>
+                </select>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-grou py-1">
+                <span clas="py-2">
+                    <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">address</label>
+                </span>
+           
+              <div class="w3-row">
+                <div class="w3-col s6">
+                  <input type="text" name="city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="City" required>
+                </div>
+                <div class="w3-col s6 px-1">
+                  <input type="text" name="state" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="State" required>
+                </div>
+              </div>
+            </div>
+            <div class="form-group py-1 w3-hide-large w3-hide-medium">
+              <span clas="py-2">
+                  <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Connect To</label>
+              </span>
+            <input type="text" name="tile_title" class="text-blue-600/100" value="{{ single_tile.tile_title }}" readonly>
+          </div>
+            <div class="form-group py-1">
+              <div class="w3-row">
+                <div class="w3-col s6">
+                  
+                     <span clas="py-2">
+                       <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">  Email </label>
+                    </span>
+                    <input type="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " placeholder="Email Address"
+                    {% if user.is_authenticated %} value="{{user.email}}"  {% endif %} required>
+
+                </div>
+
+                <div class="w3-col s6 px-1">
+                  <span clas="py-2">
+                    <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Phone Number & Whatsapp Number </label>
+                </span>
+      
+                 <input type="text" name="phone" placeholder="Phone Number " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
+          
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group py-1">
+                 <span clas="py-2">
+                        <label for="countries_disabled" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-dark-600 bg-gray-50 uppercase last:mr-0 mr-1">Comments</label>
+                    </span>
+       
+              <textarea name="message" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your message here (optional)"></textarea>
+            </div>
+            
+            <input type="submit" value="BOOK/HIRE" class="mb-2 w-full inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+<!-- Properties details page end -->
+{% endblock %}

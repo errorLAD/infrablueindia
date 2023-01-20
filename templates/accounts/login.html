@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %} | Login {% endblock %}
+{% block content %}
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+<div class="w3-hide-small">
+<br><br>
+<!-- Contact section end -->
+<br><br>
+<div class="w3-row px-10">
+    <div class="w3-col s6">
+        <h4> <img
+            height="00px"
+            src="https://i.postimg.cc/GhXQk9k1/new-delhi.png"
+            alt="First slide"
+          />  </h4></div>
+    <div class="w3-col s6">
+        <div class="w-full max-w-xs">
+            {% include 'includes/messages.html' %}
+           
+         <form action="{% url 'login' %}" method="POST" class="bg-white  rounded px-8 pt-6 pb-8 mb-4">
+            <img
+            height="450px"
+            src="https://i.postimg.cc/0NNkYZLk/riya.png"
+            alt="First slide"
+          /> 
+                      {% csrf_token %}
+
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                    Username
+                </label>
+                <input type="text" name="username"   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Username" required>
+              </div>
+              <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                  Password
+                </label>
+                <input  type="password" name="password"  class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Password" required >
+              </div>
+              <div class="flex items-center justify-between">
+                <button   type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                    Login
+                </button>
+                <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+                  Forgot Password?
+                </a>
+              </div>
+            </form>
+            <p class="text-center text-gray-500 text-xs">
+              
+            </p>
+          </div> </div>
+  </div>
+</div>
+
+  <!--small-->
+  <div class="w3-hide-large w3-hide-medium">
+    <br><br>
+    <!-- Contact section end -->
+ 
+    <div class="">
+        <div class="">
+            <h4> <img
+                height="00px"
+                src="https://i.postimg.cc/Qx3sy2Xf/jojo-1.png"
+                alt="First slide"
+              />  </h4></div>
+        <div class="">
+            <div class="w-full max-w-xs">
+                {% include 'includes/messages.html' %}
+               
+             <form action="{% url 'login' %}" method="POST" class="bg-white  rounded px-8 pt-6 pb-8 mb-4">
+                <img
+                height="450px"
+                src="https://i.postimg.cc/0NNkYZLk/riya.png"
+                alt="First slide"
+              /> 
+                          {% csrf_token %}
+    
+                  <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                        Username
+                    </label>
+                    <input type="text" name="username"   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Username" required>
+                  </div>
+                  <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                      Password
+                    </label>
+                    <input  type="password" name="password"  class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" placeholder="Password" required >
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <button   type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                        Login
+                    </button>
+                    <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+                      Forgot Password?
+                    </a>
+                  </div>
+                </form>
+                <p class="text-center text-gray-500 text-xs">
+                  
+                </p>
+              </div> </div>
+      </div>
+    </div>
+{% endblock %}
